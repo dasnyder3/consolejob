@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useState, useReducer } from "react";
 import { columns, columnsReducer } from "../state/reducers";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import NewJobModal from "./NewJobModal.jsx";
@@ -44,11 +44,6 @@ function Board() {
   const [prevJobColumn, prevJobDispatch] = useReducer(columnsReducer, columns);
   const [jobColumn, setColumns] = useState(prevJobColumn);
   const [showModal, updateShowModal] = useState(false);
-
-  useEffect(() => {
-    console.log('hitting useEffect')
-    fetch('/user').then(res => res.json()).then(data => console.log(data))
-  }, []);
 
   return (
     <div
